@@ -1,13 +1,9 @@
 var app = angular.module('app', []);
 
-// var MainController = function($scope) {
-//   $scope.val = "test123"
-// }
-
 app.controller('MainController', function($scope) {
-  $scope.val = "test456"
-})
+  // $scope.myarr = [1,2,3,4,5,5,6,7,8,9]
 
-// angular.module('controllers', []).controller('MainController', function($scope) {
-//   $scope.val = "test789"
-// })
+  // $scope.users = [{name:"mike",age:23},{name:"andy",age:34},{name:"reid",age:45},{name:"reid",age:45}]
+
+  $scope.ob = {name: "mike", age:35, title:"Mr."}
+})
