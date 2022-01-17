@@ -1,20 +1,16 @@
-<html ng-app="app">
-  <body>
-    <div ng-controller="MainController">
-      <div ng-repeat="attr in ob">
-        {{ attr }}
-      </div>
-<!--       <div ng-repeat="element in myarr track by $index">
-        {{ element }}
-      </div> -->
+<div class="coll">
+  h2>{{contato.nome}}</h2>
+  <img src="img/profile_image.png" alt="">
+</div>>
 
-<!--       <div ng-repeat-start="user in users">
-        <strong>{{ user.name }}</strong>: {{ user.age }}
-      </div>
-      <hr ng-repeat-end /> -->
-    </div>
+<div class="col2"> //métodos que serão consumidos com o $scope.contato
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script type="text/javascript" src="application.js"></script>
-  </body>
-</html>
+  <p class="email" ng-show="contato.email">{{contato.email}}</p>
+  <p class="telefone" ng-show="contato.telefone">{{contato.telefone}}</p>
+
+</div>
+
+<hr />
+<hr />
+<a class="btn btn-left back" href="#/">Retornar&lt</a>
+<a class="btn " href="#/edit/{{contato.id}}">Editar</a>
