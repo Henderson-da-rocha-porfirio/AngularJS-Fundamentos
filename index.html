@@ -1,13 +1,21 @@
 <html ng-app="app">
 
+<head>
+  <style>
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+</head>
+
 <body>
   <div ng-controller="MainController">
-    <div>Num: {{ num }}</div>
-    <div>Nums: {{ nums }}</div>
-
-    <button ng-click="increment()">Increment</button>
-    <button ng-click="breakit()">Break it</button>
-
+    <span ng-cloak>{{ mydata }}<div>Hey there</div></span>
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
