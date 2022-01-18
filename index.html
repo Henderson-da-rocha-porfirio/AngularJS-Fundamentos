@@ -1,7 +1,24 @@
 <html ng-app="app">
+  <head>
+    <style type="text/css">
+      .orange {
+        color: orange;
+      }
+      .italic {
+        font-style: italic;
+      }
+    </style>
+  </head>
   <body>
-    <h1>Olá, Mundo!</h1>
+    <div ng-controller="MainController">
+<!-- 
+      <h1 class="orange italic">Olá, Mundo!</h1> -->
+      <!-- <h1 ng-class="[classVar, 'italic']">Olá, Mundo!</h1> -->
+      <!-- <h1 ng-class="{orange: false}">Olá, Mundo!</h1> -->
+      <!-- <h1 ng-class="{orange: true}">Olá, Mundo!</h1> -->
+      <h1 ng-class="{orange: classVar, italic: classVar}">Olá, Mundo!</h1>
 
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script type="text/javascript" src="application.js"></script>
   </body>
