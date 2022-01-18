@@ -1,16 +1,28 @@
-<div class="coll">
-  h2>{{contato.nome}}</h2>
-  <img src="img/profile_image.png" alt="">
-</div>>
+<html ng-app="app">
+  <head>
+    <style type="text/css">
+      .orange {
+        color: orange;
+      }
+      .italic {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
 
-<div class="col2"> //métodos que serão consumidos com o $scope.contato
+    <div ng-controller="MainController">
 
-  <p class="email" ng-show="contato.email">{{contato.email}}</p>
-  <p class="telefone" ng-show="contato.telefone">{{contato.telefone}}</p>
+      <div ng-include="'test.html'">
+      </div>
 
-</div>
+    </div>
 
-<hr />
-<hr />
-<a class="btn btn-left back" href="#/">Retornar&lt</a>
-<a class="btn " href="#/edit/{{contato.id}}">Editar</a>
+    <script type="text/ng-template" id="test.html">
+      <h1>My template</h1>
+    </script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
