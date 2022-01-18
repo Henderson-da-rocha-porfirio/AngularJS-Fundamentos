@@ -1,10 +1,16 @@
 var app = angular.module('app', []);
 
-app.controller('MainController', function ($scope) {
-    $scope.mydata = {val: "jake"}
+app.controller('MainController', function($scope) {
 
-    $scope.$watch('mydata.val', function(newval) {
-        $scope.mydata.toolong = newval.length > 15        
+    $scope.num = 0
+    $scope.nums = []
+  
+    $scope.increment = function() {
+      $scope.num++;
+    }
+  
+    $scope.breakit = $scope.$watch('num', function() {
+      $scope.nums.push($scope.num)
     })
-
-})
+  
+  });
