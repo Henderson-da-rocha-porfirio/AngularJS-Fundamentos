@@ -3,7 +3,7 @@
 <body>
   <div ng-controller="MainController">
     <input ng-model="myfilter.name">
-    <div ng-repeat="user in mydata.arr | filter:myfilter">
+    <div ng-repeat="user in mydata.arr | filter:myfilter | orderBy:'age' | limitTo:2">
       <!-- <input ng-model="myfilter.str"> -->
       <!-- <div ng-repeat="user in mydata.arr | filter:myfilter.str"> -->
       {{ user }}
