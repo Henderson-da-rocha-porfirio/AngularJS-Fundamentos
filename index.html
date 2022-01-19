@@ -1,21 +1,15 @@
 <html ng-app="app">
 
-<head>
-  <style>
-    [ng\:cloak],
-    [ng-cloak],
-    [data-ng-cloak],
-    [x-ng-cloak],
-    .ng-cloak,
-    .x-ng-cloak {
-      display: none !important;
-    }
-  </style>
-</head>
-
 <body>
   <div ng-controller="MainController">
-    <span ng-cloak>{{ mydata }}<div>Hey there</div></span>
+    <input ng-model="myfilter.name">
+    <div ng-repeat="user in mydata.arr | filter:myfilter">
+      <!-- <input ng-model="myfilter.str"> -->
+      <!-- <div ng-repeat="user in mydata.arr | filter:myfilter.str"> -->
+      {{ user }}
+    </div>
+    <!-- {{ myfilter.str | uppercase }} -->
+    <!-- {{ myfilter.str | date }} -->
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
