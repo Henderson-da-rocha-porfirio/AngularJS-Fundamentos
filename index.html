@@ -3,23 +3,34 @@
 <body>
   <div ng-controller="MainController">
 
-    <input ng-model="photo.date" /> <!-- representa o input do controller pai  -->
+    <button ng-click="callme('str')">Clique!</button>
 
+    <input ng-model="photo.date" />
 
-    <!--  <photo photo-src="{{photo.url}}" caption="Mother - Imagem carregada no Pixabay em: {{photo.date}}" /> -->
+    <photo photo-src="photo.url"
+      capstring="Mother - Imagem carregada no Pixabay em: {{photo.date}}"
+      local-Func="callme(msg)" />
 
-    <photo photo-src="photo.url" capstring="photo.date" />
+ <!--      * 'photo-src' vem antes de 'capstring' que vem antes dessa imagem.
+
+      * 'local-func' nós vemos nele o argumento chamado que estamos tentando dar o acesso, o callme, que está no scope pai, para a diretiva sem 
+      ter que mudar os métodos controladores do pai. E antes de chamar 'callme' no pai, ele será convertido no scope isolado:
+      
+      controller: function ($scope) { //Uma diretiva controller para atribuir dados ao scope. Isso funciona conforme a explicação acima sobre o '&'. E usa a injeção de dependência($scope)
+            $scope.mydata = "some data"
+        }
+
+        * Isso daí acima é apenas para dizer que quero usar 'callme' na diretiva. -->
 
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
   <script type="text/javascript" src="application.js"></script>
-  <!-- <script type="text/ng-template" id="photo.html"> -->
-  <script   id="photo.html" type="text/ng-template">
+  <script type="text/ng-template" id="photo.html">
       <figure>
         <img width="500px" ng-src="{{photoSrc}}"/>
-        <figcaption>{{caption}}</figcaption>
-        <input ng-model="caption"> <!-- representa o input da diretiva  -->
+        <figcaption>{{caption}}{{mydata}}</figcaption>
+        <button ng-click="localFunc({msg:mydata})">Clique!</button>
       </figure>
   </script>
 
