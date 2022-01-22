@@ -1,28 +1,19 @@
 var app = angular.module('app', []);
 
-app.controller('MainController', function($scope,myFactory) {
-  console.log(myFactory.getData())
-  myFactory.reverse()
-  console.log(myFactory.getData())
-})
+app.controller('MainController', ['$scope','DataService',function($scope,DataService) {
+  $scope.mydata = DataService.data
+}])
 
-app.factory('myFactory',function() {
-  var myString = "this is some other data"
-  var addToString = function(newstr) {
-    myString += newstr
-  }
+app.factory('DataService',function(AppendService) {
   return {
-    getData: function() { return myString },
-    setData: function(data) { myString = data },
-    addData: addToString
+    data: AppendService.append("this is service data")
   }
 })
 
-app.config(function($provide) {
-  $provide.decorator('myFactory',function($delegate) {
-    $delegate.reverse = function() {
-      $delegate.setData($delegate.getData().split('').reverse().join(''))
+app.factory('AppendService',function() {
+  return {
+    append: function(val) {
+      return val + " and this too!"
     }
-    return $delegate
-  })
+  }
 })
