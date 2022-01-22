@@ -8,4 +8,4 @@ app.controller('MainController', function($scope,twitterAPI,valService) {
 
 app.constant('twitterAPI', {url: "api.twitter.com/v1/"})
 
-app.value('valService', function() {return "this is returned from a fn"})
+app.value('valService', function() {return "this is returned from a fn"}) 
