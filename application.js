@@ -1,19 +1,37 @@
 var app = angular.module('app', []);
 
-app.controller('MainController', ['$scope','DataService',function($scope,DataService) {
-  $scope.mydata = DataService.data
-}])
-
-app.factory('DataService',function(AppendService) {
-  return {
-    data: AppendService.append("this is service data")
-  }
+app.controller('MainController', function($scope) {
+  $scope.photo = {url: "http://upload.wikimedia.org/wikipedia/en/7/75/DowntownSF.jpg",
+                  date:"December 3rd, 2013"}
 })
 
-app.factory('AppendService',function() {
+app.directive('photo', function() {
   return {
-    append: function(val) {
-      return val + " and this too!"
+    restrict: 'E',
+
+    template: '<figure><img width="500px"/><figcaption/></figure>',
+    replace: true,
+
+    link: function(scope, element, attrs) {
+      attrs.$observe('caption', function(value) {
+        element.find('figcaption').text(value)
+      })
+
+      attrs.$observe('photoSrc', function(value) {
+        element.find('img').attr('src', value)
+      })
     }
   }
 })
+
+// app.directive('photo', function() {
+//     return {
+//         restrict: 'E',
+//         templateUrl: "photo.html",
+//         replace: true,
+//         scope: {
+//             caption: '@',
+//             photoSrc: '@'
+//         }
+//     }
+// })
