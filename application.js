@@ -1,8 +1,8 @@
 var app = angular.module('app', []);
 
 app.controller('MainController', function($scope) {
-  $scope.photo = {url: "http://upload.wikimedia.org/wikipedia/en/7/75/DowntownSF.jpg",
-                  date:"December 3rd, 2013"}
+  $scope.photo = {url: "https://cdn.pixabay.com/photo/2022/01/13/14/02/mother-6935336_960_720.jpg",
+                  date:"13 de Janeiro, 2022."}
 })
 
 app.directive('photo', function() {
