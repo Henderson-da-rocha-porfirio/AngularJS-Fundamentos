@@ -1,8 +1,10 @@
 var app = angular.module('app', []);
 
-app.controller('MainController', function($scope) {
-  $scope.photo = {url: "https://cdn.pixabay.com/photo/2022/01/13/14/02/mother-6935336_960_720.jpg",
-                  date:"13 de Janeiro, 2022."}
+app.controller('MainController', function ($scope) {
+    $scope.photo = {
+        url: "https://cdn.pixabay.com/photo/2022/01/13/14/02/mother-6935336_960_720.jpg",
+        date: "13 de Janeiro, 2022."
+    }
 })
 
 // app.directive('photo', function() {
@@ -24,13 +26,17 @@ app.controller('MainController', function($scope) {
 //   }
 // })
 
-app.directive('photo', function() {
+app.directive('photo', function () {
     return {
         restrict: 'E',
         templateUrl: "photo.html",
         replace: true,
         scope: {
-            caption: '@capstring',
+            /*  caption: '@',
+             photoSrc: '@' */
+            /*   caption: '@capstring',
+              photoSrc: '=' */
+            caption: '=capstring',
             photoSrc: '='
         }
     }

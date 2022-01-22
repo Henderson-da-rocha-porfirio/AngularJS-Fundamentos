@@ -1,21 +1,29 @@
 <html ng-app="app">
-  <body>
-    <div ng-controller="MainController">
 
-    <input ng-model="photo.date"/>
+<body>
+  <div ng-controller="MainController">
 
-      <photo photo-src="photo.url" 
-        capstring="Mother - Imagem carregada no Pixabay em: {{photo.date}}"/>
+    <input ng-model="photo.date" /> <!-- representa o input do controller pai  -->
 
-    </div>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script type="text/javascript" src="application.js"></script>
-    <script type="text/ng-template" id="photo.html">
+    <!--  <photo photo-src="{{photo.url}}" caption="Mother - Imagem carregada no Pixabay em: {{photo.date}}" /> -->
+
+    <photo photo-src="photo.url" capstring="photo.date" />
+
+  </div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script type="text/javascript" src="application.js"></script>
+  <!-- <script type="text/ng-template" id="photo.html"> -->
+  <script   id="photo.html" type="text/ng-template">
       <figure>
         <img width="500px" ng-src="{{photoSrc}}"/>
         <figcaption>{{caption}}</figcaption>
+        <input ng-model="caption"> <!-- representa o input da diretiva  -->
       </figure>
-    </script>
-  </body>
+  </script>
+
+
+</body>
+
 </html>
