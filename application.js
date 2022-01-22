@@ -9,6 +9,13 @@ app.directive('photo', function() {
   return {
     restrict: 'E',
 
+    // Directives types:
+    // E = element
+    // A = attribute
+    // C = class 
+    // M = constant
+    // Exemplo de uma directive que pode tomar várias formas = restrict: 'AE'
+
     template: '<figure><img width="500px"/><figcaption/></figure>',
     replace: true,
 
