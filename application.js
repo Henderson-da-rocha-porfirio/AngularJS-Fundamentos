@@ -1,13 +1,9 @@
 var app = angular.module('app', []);
 
-app.controller('MainController', function($scope,myFactory,myTest) {
+app.controller('MainController', function($scope,myFactory) {
   console.log(myFactory.getData())
-  myFactory.addData('bla bla bla')
+  myFactory.reverse()
   console.log(myFactory.getData())
-
-  console.log(myTest.getData())
-  myTest.addData('bla bla bla')
-  console.log(myTest.getData())
 })
 
 app.factory('myFactory',function() {
@@ -16,33 +12,17 @@ app.factory('myFactory',function() {
     myString += newstr
   }
   return {
-    getData: function() {
-      return "String contains: " + myString
-    },
+    getData: function() { return myString },
+    setData: function(data) { myString = data },
     addData: addToString
   }
 })
 
-app.provider('myTest', function() {
-  var myString = "this is some other data"
-  var addToString = function(newstr) {
-    myString += newstr
-  }
-  return {
-    setData: function(data) {
-      myString = data
-    },
-    $get: function() {
-      return {
-        getData: function() {
-          return "String contains: " + myString
-        },
-        addData: addToString
-      }
+app.config(function($provide) {
+  $provide.decorator('myFactory',function($delegate) {
+    $delegate.reverse = function() {
+      $delegate.setData($delegate.getData().split('').reverse().join(''))
     }
-  }
-})
-
-app.config(function(myTestProvider) {
-  myTestProvider.setData('some different string')
+    return $delegate
+  })
 })
