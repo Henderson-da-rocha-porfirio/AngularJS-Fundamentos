@@ -2,8 +2,10 @@
   <body>
     <div ng-controller="MainController">
 
-      <photo photo-src="{{photo.url}}" 
-        caption="Mother - Imagem carregada no Pixabay em: {{photo.date}}"/>
+    <input ng-model="photo.date"/>
+
+      <photo photo-src="photo.url" 
+        capstring="Mother - Imagem carregada no Pixabay em: {{photo.date}}"/>
 
     </div>
 
