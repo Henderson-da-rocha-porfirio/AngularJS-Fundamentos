@@ -1,16 +1,10 @@
 <html ng-app="app">
+  <body>
+    <div ng-controller="MainController">
 
-<body>
-  <div ng-controller="MainController">
-    <!-- <div ng-repeat="user in mydata.arr | podeBeber"> -->
-    <input ng-model="mydata.str">
-    <div ng-repeat="user in mydata.arr | podeBeber:mydata.str">
-      <!--  {{ mydata.str | charlimit }} -->
-      {{ user }}
     </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script type="text/javascript" src="application.js"></script>
-</body>
-
+    <script type="text/javascript" src="app.js"></script>
+  </body>
 </html>
