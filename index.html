@@ -2,9 +2,13 @@
   <body>
     <div ng-controller="MainController">
 
-      <foo>
-        <div>This is the index.html content!</div>
-      </foo>
+      <div><input ng-model="val"/></div>
+      <div><input ng:model="val"/></div>
+      <div><input ng_model="val"/></div>
+      <div><input data-ng-model="val"/></div>
+      <div><input x-ng-model="val"/></div>
+      
+      <div>{{val}}</div>
 
     </div>
 
