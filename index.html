@@ -1,17 +1,10 @@
 <html ng-app="app">
   <body>
     <div ng-controller="MainController">
-      <ng-view></ng-view>
+      {{ mydata }}
     </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js"></script>
-    <script type="text/javascript" src="application.js"></script>
-    <script type="text/ng-template" id="view.html">
-      <div ng-controller="MainController">This is the view with some data here: {{ somedata }}</div>
-    </script>
-    <script type="text/ng-template" id="view2.html">
-      <div ng-controller="MainController">This is the OTHER view with some data here: {{ somedata }}</div>
-    </script>
+    <script type="text/javascript" src="application.js "></script>
   </body>
 </html>

@@ -1,16 +1,26 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', []);
 
-app.controller('MainController', function($scope,$routeParams) {
-  $scope.somedata = $routeParams.myparam
+app.controller('MainController', function($scope,$q,$timeout) {
+
+  $scope.mydata = "Old data"
+
+  var defer = $q.defer();
+
+  defer.promise
+    .then(function(val) {
+      $scope.mydata += val
+      return val
+    })
+    .then(function(val) {
+      $scope.mydata += val
+      return val
+    })
+    .then(function(val) {
+      $scope.mydata += val
+      return val
+    })
+
+  $timeout(function() {
+    defer.resolve("More Cowbell ");
+  },3000)
 });
-
-app.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {templateUrl: 'view.html'})
-    .when('/test', {redirectTo: function(routeParams,path,search) {
-      console.log(routeParams,path,search)
-      return '/test/'+search.mynewparam
-    }})
-    .when('/test/:myparam', {templateUrl: 'view2.html'})
-    .otherwise({template: 'Couldn\'t match a route'})
-}) 
