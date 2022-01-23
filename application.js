@@ -1,23 +1,25 @@
-var app = angular.module('app', []);
-
-app.controller('MainController', function($scope,$rootScope) {
-  $rootScope.$on('myEvent',function(event,src) { console.log('Main sees myEvent from',src) })
-
-  $scope.broadClick = function(origin) { $rootScope.$broadcast('myEvent',origin) }
-  $scope.emitClick = function(origin) { $rootScope.$emit('myEvent',origin) }
-})
-
-app.controller('MiddleController', function($scope) {
-  $scope.$on('myEvent',function(event,src) { console.log('Middle sees myEvent from',src) })
-
-  $scope.broadClick = function(origin) { $scope.$broadcast('myEvent',origin) }
-  $scope.emitClick = function(origin) { $scope.$emit('myEvent',origin) }
-})
-
-app.controller('BottomController', function($scope) {
-  $scope.$on('myEvent',function(event,src) { console.log('Bottom sees myEvent from',src) })
-
-  $scope.broadClick = function(origin) { $scope.$broadcast('myEvent',origin) }
-  $scope.emitClick = function(origin) { $scope.$emit('myEvent',origin) }
-})
-
+angular.module("app", [])
+  .config(function() {
+    console.log('Config has been reached');
+  })
+  .controller('MainController', function ($scope, $timeout, $http) {
+ 
+    var counter = 0;
+ 
+    var makeRequest = function() {
+      $http({
+        url: "http://google.com",
+        method: "GET"
+      }).success(console.log("GET request success!"));
+    };
+ 
+    $scope.$watch(function () {
+      counter += 1;
+      console.log("Digest has been called",counter,"times");
+    });
+ 
+    $timeout(function() {
+      makeRequest();
+      console.log('End timeout!');
+    }, 3000);
+  });

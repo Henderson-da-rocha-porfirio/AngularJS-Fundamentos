@@ -1,16 +1,8 @@
 <html ng-app="app">
   <body>
     <div ng-controller="MainController">
-    <button ng-click="broadClick('Main')">Main Broadcast</button>
-    <button ng-click="emitClick('Main')">Main Emit</button>
-      <div ng-controller="MiddleController">
-        <button ng-click="broadClick('Middle')">Middle Broadcast</button>
-        <button ng-click="emitClick('Middle')">Middle Emit</button>
-        <div ng-controller="BottomController">
-          <button ng-click="broadClick('Bottom')">Bottom Broadcast</button>
-          <button ng-click="emitClick('Bottom')">Bottom Emit</button>
-        </div>
-      </div>
+      <button ng-click="">Click to start a new digest loop!</button>
+      <input ng-model="someModel" />
     </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
