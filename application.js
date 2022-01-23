@@ -1,45 +1,23 @@
-var app = angular.module('app', ['ngRoute']);
- 
-app.config(function ($routeProvider, $locationProvider) {
-  $routeProvider
-    .when('/', {templateUrl: "oldview.html"})
-    .when('/newroute',
-    {
-      templateUrl: "newview.html",
-      controller: "NewController",
-      resolve: {
-        app: function ($q, $timeout) {
-          var defer = $q.defer();
-          $timeout(function () {
-            defer.resolve(); 
-          }, 2000);
-          return defer.promise;
-        }
-      }
-    })
-  })
- 
-app.controller("MainController", function ($scope,$rootScope,$route,$location) {
-  $scope.somedata = "This is some data!"
+var app = angular.module('app', []);
 
-  $scope.navigate = function () {
-    console.log($scope);
-    $location.path("/newroute");
-  }
+app.controller('MainController', function($scope,$rootScope) {
+  $rootScope.$on('myEvent',function(event,src) { console.log('Main sees myEvent from',src) })
 
-  $rootScope.$on("$routeChangeStart", function (event, current, previous, rejection) {
-    console.log("Route Change Start!")
-    console.log(event, current, previous, rejection);
-  });      ''
-  $rootScope.$on("$routeChangeSuccess", function (event, current, previous, rejection) {
-    console.log("Route Change Success!")
-    console.log(event, current, previous, rejection);
-  });
-});
- 
-app.controller("OldController", function ($scope, $route, $location) {
-});
- 
-app.controller("NewController", function($scope, $template) {
-  console.log($scope, $template);
-});
+  $scope.broadClick = function(origin) { $rootScope.$broadcast('myEvent',origin) }
+  $scope.emitClick = function(origin) { $rootScope.$emit('myEvent',origin) }
+})
+
+app.controller('MiddleController', function($scope) {
+  $scope.$on('myEvent',function(event,src) { console.log('Middle sees myEvent from',src) })
+
+  $scope.broadClick = function(origin) { $scope.$broadcast('myEvent',origin) }
+  $scope.emitClick = function(origin) { $scope.$emit('myEvent',origin) }
+})
+
+app.controller('BottomController', function($scope) {
+  $scope.$on('myEvent',function(event,src) { console.log('Bottom sees myEvent from',src) })
+
+  $scope.broadClick = function(origin) { $scope.$broadcast('myEvent',origin) }
+  $scope.emitClick = function(origin) { $scope.$emit('myEvent',origin) }
+})
+
