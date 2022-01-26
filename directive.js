@@ -1,4 +1,3 @@
-// File: chapter11/directive-with-scope-advanced/directive.js
 angular.module('stockMarketApp')
   .directive('stockWidget', [function() {
     return {

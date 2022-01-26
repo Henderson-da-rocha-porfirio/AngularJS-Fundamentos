@@ -1,5 +1,3 @@
-// File: chapter11/directive-with-scope-advanced/app.js
-
 angular.module('stockMarketApp', [])
   .controller('MainCtrl', [function() {
     var self = this;
