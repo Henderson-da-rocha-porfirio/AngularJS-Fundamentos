@@ -50,3 +50,9 @@
 36. Eles são criados em ordem hierárquica.
 
 #### Directives
+37. São marcadores no HTML DOM que adicionam funcionalidades às páginas HTML.
+38. Elas adicionam comportamentos às TAGS HTML.
+39. Podem ser um elemento de atributo HTML( ELEMENT ATTRIBUTE ), um elemento de TAG/NOME( NAME ) ou um Classe CSS.
+40. Fazem uso de built-in( constroem ) como as diretivas ng-bind, ng-model e ng-repeat.
+41. Elas podem receber adequações tranquilamente.
+42. São super úteis para mudar o conteúdo do HTML DOM.
