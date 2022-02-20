@@ -19,3 +19,7 @@
 15. Quando o model muda, a view então reflete as mudanças e vice-versa.
 
 #### Expressões
+16. Elas são escritas com duas chaves: {{}}.
+17. São avaliadas pelos navegadores através do escopo ( scope ) do objeto onde se guardam os objetos.
+18. Elas podem trabalhar com arrays, números, objetos, funções e strings.
+19. Examples: {{1+1}}, {{RosTec.nome}} e {{cursinho vestibular[0]}}
