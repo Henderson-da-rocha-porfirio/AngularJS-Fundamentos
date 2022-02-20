@@ -40,3 +40,13 @@
 28. É bom utilizar os controllers em ordem ao por o estado inicial das variáveis no $scope.
 29. As funções e comportamentos esperados devem estar dentro dos controllers.
 30. Controllers não devem ser usados para tornar o desenvolvimento complexo.
+
+#### $scope
+31. Scopes( escopos ) separam o Model e a View.
+32. Ele é o Data Model das aplicações.
+33. Ele é usado como um Data Model entre Controllers e Views.
+34. Tanto Controllers quanto as Directives podem acessar aos scopes.
+35. Ele é injetado nos Controllers como um parâmetro.
+36. Eles são criados em ordem hierárquica.
+
+#### Directives
