@@ -34,4 +34,9 @@
 24. Permitem que diferentes módulos sejam definidos como: controllers, services, filters, factories, directives e etc.
 25. Para se importar um módulo, faz-se necessário o uso de <script src="exemplo.js"></script>
 
-#### Controllers
+#### Controllers (ng-controller e $scope)
+26. Eles são definidos e conectados ao HTML DOM utilizando a diretiva ng-controller.
+27. Ao serem criados, um objeto $scope é anexado nos controllers.
+28. É bom utilizar os controllers em ordem ao por o estado inicial das variáveis no $scope.
+29. As funções e comportamentos esperados devem estar dentro dos controllers.
+30. Controllers não devem ser usados para tornar o desenvolvimento complexo.
